@@ -1,4 +1,5 @@
 . "$PSScriptRoot\Part2-Hardware-MCP.ps1"
+. "$PSScriptRoot\Part3-Tools.ps1"
 Add-Type -AssemblyName PresentationFramework
 Add-Type -AssemblyName PresentationCore
 Add-Type -AssemblyName WindowsBase
@@ -292,5 +293,19 @@ Detectar-IAs
 Detectar-Dependencias
 
 Add-Log "LocalAI Hub iniciado"
+$btnDino.Add_Click({
+    Start-DinoGame
+})
 
+$btnOpenWebUI.Add_Click({
+    Test-OpenWebUI
+})
+
+$btnTerminal.Add_Click({
+    Open-AITerminal
+})
+
+$btnDiag.Add_Click({
+    Run-AdvancedDiagnostics
+})
 $null = $Window.ShowDialog()
